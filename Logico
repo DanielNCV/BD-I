@@ -260,9 +260,6 @@
 </key>
 </table>
 <table x="419" y="345" name="Detalles">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="cod_producto_Producto" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Producto" row="cod_producto" />
@@ -278,7 +275,8 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id</part>
+<part>cod_producto_Producto</part>
+<part>Codigo_pedido_Pedido</part>
 </key>
 </table>
 </sql>
