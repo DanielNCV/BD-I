@@ -190,7 +190,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Pedido" row="Codigo_pedido" />
 </row>
-<row name="Fecha" null="1" autoincrement="0">
+<row name="Fecha_pedido" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="Monto total" null="1" autoincrement="0">
@@ -212,9 +212,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Cliente" row="codigo_cliente" />
 </row>
-<row name="Fecha_pedido" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="Fecha_esperada" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
