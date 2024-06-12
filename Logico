@@ -155,7 +155,7 @@
 <part>cod_producto</part>
 </key>
 </table>
-<table x="259" y="701" name="Distribuidor">
+<table x="261" y="695" name="Distribuidor">
 <row name="RUC" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -169,7 +169,7 @@
 <part>RUC</part>
 </key>
 </table>
-<table x="532" y="715" name="Telefono de distribuidor">
+<table x="531" y="715" name="Telefono de distribuidor">
 <row name="telefono" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -186,6 +186,10 @@
 <row name="id_código" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="Codigo_pedido_Pedido" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Pedido" row="Codigo_pedido" />
+</row>
 <row name="Fecha" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -195,12 +199,9 @@
 <row name="Tipo" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="Codigo_pedido_Pedido" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="Pedido" row="Codigo_pedido" />
-</row>
 <key type="PRIMARY" name="">
 <part>id_código</part>
+<part>Codigo_pedido_Pedido</part>
 </key>
 </table>
 <table x="674" y="241" name="Pedido">
