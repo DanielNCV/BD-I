@@ -37,10 +37,14 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="532" y="64" name="Empleado">
+</datatypes><table x="514" y="59" name="Empleado">
 <row name="DNI" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="DNI_Empleado" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Empleado" row="DNI" />
+</row>
 <row name="Nombre" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -118,20 +122,23 @@
 <part>codigo_cliente_Cliente</part>
 </key>
 </table>
-<table x="269" y="418" name="Producto">
-<row name="id_producto" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="categoria" null="1" autoincrement="0">
+<table x="194" y="365" name="Producto">
+<row name="cod_producto" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="Nombre de Producto" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="Categoria" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <row name="Fecha de Vencimiento" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="Precio" null="1" autoincrement="0">
+<row name="Precio_venta" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Precio_distrib" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="Descripcion" null="1" autoincrement="0">
@@ -145,7 +152,7 @@
 <default>NULL</default><relation table="Distribuidor" row="RUC" />
 </row>
 <key type="PRIMARY" name="">
-<part>id_producto</part>
+<part>cod_producto</part>
 </key>
 </table>
 <table x="259" y="701" name="Distribuidor">
@@ -175,7 +182,7 @@
 <part>RUC_Distribuidor</part>
 </key>
 </table>
-<table x="947" y="595" name="Comprobantes ">
+<table x="947" y="594" name="Comprobantes ">
 <row name="id_código" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -196,27 +203,29 @@
 <part>id_código</part>
 </key>
 </table>
-<table x="664" y="291" name="Pedido">
+<table x="674" y="241" name="Pedido">
 <row name="Codigo_pedido" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="monto" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="id_producto_Producto" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="Producto" row="id_producto" />
-</row>
 <row name="codigo_cliente_Cliente" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Cliente" row="codigo_cliente" />
 </row>
+<row name="Fecha_pedido" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Fecha_esperada" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Fecha_entrega" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>Codigo_pedido</part>
 </key>
 </table>
 <table x="821" y="22" name="Horario">
-<row name="id_horario" null="1" autoincrement="1">
+<row name="cod_horario" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="DNI_Empleado" null="1" autoincrement="0">
@@ -232,11 +241,8 @@
 <row name="Dia" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="Seccion" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
-<part>id_horario</part>
+<part>cod_horario</part>
 <part>DNI_Empleado</part>
 </key>
 </table>
@@ -251,6 +257,28 @@
 <key type="PRIMARY" name="">
 <part>correo electronico</part>
 <part>codigo_cliente_Cliente</part>
+</key>
+</table>
+<table x="419" y="345" name="Detalles">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cod_producto_Producto" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Producto" row="cod_producto" />
+</row>
+<row name="Codigo_pedido_Pedido" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Pedido" row="Codigo_pedido" />
+</row>
+<row name="Cantidad_prod" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Precio_unid" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
 </key>
 </table>
 </sql>
